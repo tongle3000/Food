@@ -1,0 +1,2 @@
+export const GETLISTDATA ='list/GETLISTDATA';
+export const GETREFRESHING='list/GETREFRESHING';

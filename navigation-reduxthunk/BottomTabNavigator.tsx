@@ -5,9 +5,10 @@ import * as React from 'react';
 
 import Colors from '../constants/Colors';
 import useColorScheme from '../hooks/useColorScheme';
-import TabOneScreen from '../screens/TabOneScreen';
-import TabTwoScreen from '../screens/TabTwoScreen';
-import { BottomTabParamList, TabOneParamList, TabTwoParamList } from '../types';
+import FoodMap from '../screens-reduxthunk/map/FoodView';
+import TabOneScreen from '../screens-reduxthunk/TabOneScreen';
+import TabTwoScreen from '../screens-reduxthunk/TabTwoScreen/TabTwoScreen';
+import { BottomTabParamList, TabOneParamList, TabThreeParamList, TabTwoParamList } from '../types';
 
 
 const BottomTab = createBottomTabNavigator<BottomTabParamList>();
@@ -33,6 +34,14 @@ export default function BottomTabNavigator() {
         options={{
           tabBarBadge:1,
           title: '热门食品',
+          tabBarIcon: ({ color }) => <TabBarIcon name="ios-code" color={color} />,
+        }}
+      />
+      <BottomTab.Screen
+        name="TabThree"
+        component={TabThreeNavigator}
+        options={{
+          title: '地图',
           tabBarIcon: ({ color }) => <TabBarIcon name="ios-code" color={color} />,
         }}
       />
@@ -73,5 +82,19 @@ function TabTwoNavigator() {
         options={{ headerTitle:'TabTwoScreen', headerShown:false}}
       />
     </TabTwoStack.Navigator>
+  );
+}
+
+const TabThreeStack = createStackNavigator<TabThreeParamList>();
+
+function TabThreeNavigator() {
+  return (
+    <TabThreeStack.Navigator>
+      <TabThreeStack.Screen
+        name="TabTwoScreen"
+        component={TabTwoScreen}
+        options={{ headerTitle:'TabThreeScreen', headerShown:false}}
+      />
+    </TabThreeStack.Navigator>
   );
 }
