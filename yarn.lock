@@ -6635,6 +6635,11 @@ react-is@^16.12.0, react-is@^16.13.0, react-is@^16.7.0, react-is@^16.8.1, react-
   resolved "https://registry.npm.taobao.org/react-is/download/react-is-16.13.1.tgz?cache=0&sync_timestamp=1598612864426&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Freact-is%2Fdownload%2Freact-is-16.13.1.tgz#789729a4dc36de2999dc156dd6c1d9c18cea56a4"
   integrity sha1-eJcppNw23imZ3BVt1sHZwYzqVqQ=
 
+react-native-amap3d@^2.0.2:
+  version "2.0.2"
+  resolved "https://registry.npm.taobao.org/react-native-amap3d/download/react-native-amap3d-2.0.2.tgz#aa2be7d713c4915e294fe0ad319da080354d90a8"
+  integrity sha1-qivn1xPEkV4pT+CtMZ2ggDVNkKg=
+
 react-native-appearance@~0.3.3:
   version "0.3.4"
   resolved "https://registry.npm.taobao.org/react-native-appearance/download/react-native-appearance-0.3.4.tgz#2cbcbc5142cdc1898c116684f519b16c879cbec2"
@@ -6658,6 +6663,11 @@ react-native-iphone-x-helper@^1.2.1:
   version "1.2.1"
   resolved "https://registry.npm.taobao.org/react-native-iphone-x-helper/download/react-native-iphone-x-helper-1.2.1.tgz#645e2ffbbb49e80844bb4cbbe34a126fda1e6772"
   integrity sha1-ZF4v+7tJ6AhEu0y740oSb9oeZ3I=
+
+react-native-maps@0.27.1:
+  version "0.27.1"
+  resolved "https://registry.npm.taobao.org/react-native-maps/download/react-native-maps-0.27.1.tgz#2f10cd417bb2fd938c9e015b1c9b6d9b1a44b97f"
+  integrity sha1-LxDNQXuy/ZOMngFbHJttmxpEuX8=
 
 react-native-safe-area-context@~3.0.7:
   version "3.0.7"

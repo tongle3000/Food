@@ -95,7 +95,7 @@ export default class List extends React.Component<IProps> {
         // alert(this.props.refreshing)
         return (
             <FlatList
-                onRefresh={this.props.getRefreshingList} // () => alert(123) 测试打印//在下拉刷新时,需要把 refreshing 赋值成 true
+                onRefresh={this.props._onRefresh} // () => alert(123) 测试打印//在下拉刷新时,需要把 refreshing 赋值成 true
                 refreshing={ this.props.refreshing }
                 data={this.props.list} // 数据
                 renderItem={this.renderItem}

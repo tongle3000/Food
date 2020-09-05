@@ -1,4 +1,5 @@
 import { IList } from '../../types';
+import { dataUrl } from '../../units';
 import { SET_CATEGORYS } from './actionTypes';
 
 export const getSetCategorysAction = (data:IList[]) => {
@@ -17,7 +18,7 @@ export const getSetCategorysAction = (data:IList[]) => {
 
 export const getCategorysData = () => {
     return (dispatch: any) => {
-        fetch('http://192.168.31.55:3001/mock/17/rn2/hotfood') // 只有浏览器有跨域问题, app没有.
+        fetch(dataUrl+'/mock/17/rn2/hotfood') // 只有浏览器有跨域问题, app没有.
             .then((res) => res.json())
             .then((res) => {
                 const action = getSetCategorysAction(res.data)

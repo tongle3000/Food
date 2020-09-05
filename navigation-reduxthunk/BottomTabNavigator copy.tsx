@@ -2,58 +2,28 @@ import { Ionicons } from '@expo/vector-icons';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createStackNavigator } from '@react-navigation/stack';
 import * as React from 'react';
-import { useEffect, useRef } from 'react';
-import { AsyncStorage } from 'react-native';
-import { connect } from 'react-redux';
 
 import Colors from '../constants/Colors';
 import useColorScheme from '../hooks/useColorScheme';
-import { useComponentWillMount } from '../hooks/useComponentWillMount.my';
 import FoodMap from '../screens-reduxthunk/map/FoodView';
 import { Settings } from '../screens-reduxthunk/settings';
-import { actionCreate } from '../screens-reduxthunk/settings';
 import TabOneScreen from '../screens-reduxthunk/TabOneScreen';
 import TabTwoScreen from '../screens-reduxthunk/TabTwoScreen/TabTwoScreen';
 import { BottomTabParamList, TabFourParamList, TabOneParamList, TabThreeParamList, TabTwoParamList } from '../types';
 
+
 const BottomTab = createBottomTabNavigator<BottomTabParamList>();
 
-
-/**
- * 自定义 hook componentWillMount
- * @param props 
- */
-
-
-
-
-
-function BottomTabNavigator(props:any) {
-	
-	// 自定义 ComponentWillMount
-	useComponentWillMount(() => {
-		// 代码块
-		AsyncStorage.getItem('near', (err, value) => {
-			props.changeNearStatus(value)
-			// alert(props.changeNearStatus(value))
-			// alert('345')
-		})
-	}, [])
-	
-	
+export default function BottomTabNavigator() {
 	const colorScheme = useColorScheme();
-
-	const {nearSwitch} =props;
-
-	// 控制 地图 是否 显示; nearSwitch 为 true 时显示;
 	let NearItem = null;
-	// const {nearSwitch} = props;
-	if (nearSwitch) {
+
+	if (false) {
 		NearItem = <BottomTab.Screen
 				name="TabThree"
 				component={TabThreeNavigator}
 				options={{
-					title: '附近美食',
+					title: '地图',
 					tabBarIcon: ({ color }) => <TabBarIcon name="ios-code" color={color} />,
 				}}
 			/>
@@ -82,13 +52,13 @@ function BottomTabNavigator(props:any) {
 			/>
 			{NearItem}
 			{/* <BottomTab.Screen
-				name="TabThree"
-				component={TabThreeNavigator}
-				options={{
-				title: '地图',
-				tabBarIcon: ({ color }) => <TabBarIcon name="ios-code" color={color} />,
-				}}
-			/> */}
+        name="TabThree"
+        component={TabThreeNavigator}
+        options={{
+          title: '地图',
+          tabBarIcon: ({ color }) => <TabBarIcon name="ios-code" color={color} />,
+        }}
+      /> */}
 			<BottomTab.Screen
 				name="TabFour"
 				component={TabFourNavigator}
@@ -164,34 +134,3 @@ function TabFourNavigator() {
 		</TabFourStack.Navigator>
 	);
 }
-
-
-
-
-const mapState = (state: any) => {
-	// alert(state.settings.nearSwitch) // 这里能读到
-	return {
-		nearSwitch: state.settings.nearSwitch,
-	}
-}
-
-const mapDispatch = (dispatch: any) => ({
-	changeNearStatus(value: boolean) {
-		// alert(value);
-		// alert('123')
-		value = (value = true) ? true : false ;
-		// 这里要派发一个 action, 改 redux 里的数据, 其实这个数据是存在 settings 组件里的
-		const action = actionCreate.getSwitchChangeAction(value); //把 value 传给她
-		dispatch(action);
-
-		// if(value === true) {
-		// 	value = true
-		// } else {
-		// 	value =false
-		// }
-	}
-})
-
-
-
-export default connect(mapState, mapDispatch)(BottomTabNavigator);

@@ -12,24 +12,16 @@ const defaultState:IState ={
 }
 
 
-export default (state = defaultState, action: any) => {
+export default (state=defaultState, action:any) => {
     if(action.type === GETLISTDATA) {
-        let newState={}
-        if(action.cover) {
-            newState = {
-                list: [ ...action.list],
-                refreshing: false,
-            }
-        } else {
-            newState = {
-                list: [...action.list, ...state.list],
-                refreshing: false,
-            }
+        return {
+            ...state,
+            list: [...action.data],
+            refreshing: action.refreshing,
         }
-        return newState;
     } else if(action.type === GETREFRESHING) {
         return {
-            list: [...state.list],
+            list: [...action.data, ...state.list],
             refreshing: action.refreshing,
         }
     }

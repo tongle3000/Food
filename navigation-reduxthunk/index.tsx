@@ -3,6 +3,7 @@ import { createStackNavigator, StackNavigationProp } from '@react-navigation/sta
 import * as React from 'react';
 import { ColorSchemeName } from 'react-native';
 
+import Detail from '../screens-reduxthunk/Detail';
 import List from '../screens-reduxthunk/list';
 import NotFoundScreen from '../screens-reduxthunk/NotFoundScreen';
 import { RootStackParamList } from '../types';
@@ -34,6 +35,7 @@ function RootNavigator() {
       <Stack.Screen name="Root" component={BottomTabNavigator} />
       <Stack.Screen name="NotFound" component={NotFoundScreen} options={{ title: 'Oops!' }} />
       <Stack.Screen name="List" component={List} options={{ title: 'List' , headerShown:true }} />
+      <Stack.Screen name="Detail" component={Detail} options={{ title: 'Detail' , headerShown:true }} />
     </Stack.Navigator>
   );
 }

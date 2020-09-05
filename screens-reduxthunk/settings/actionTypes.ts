@@ -1,0 +1,1 @@
+export const NEARSWITCH='settings/nearSwitch';
